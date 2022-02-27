@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html style="background-color: peachpuff;">
+<head>
+    <title>Guess The Color Game</title>
+    <h1 style = "background-color: brown; color: burlywood; text-align: center; position: relative; top: 10px; font-size: 50px; font-style: oblique">Guess The Color Game</h1>
+</head>
+<style>
+    #tutorial {
+
+    }
+    #tutorial_title
+    {
+        position: relative;
+        left: 700px;
+        bottom: -30px;
+        color: chocolate;
+    }
+    #gameButton1{
+
+    }
+    #gameButton2{
+
+    }
+    #MainMenu{
+
+    }
+    .ColorBox{
+        color: midnightblue;
+        width: 300px;
+        height: 100px;
+        border: 1px cadetblue solid;
+        position: relative;
+        bottom: -65px;
+        right: -600px;
+    }
+    #questionBox{
+
+    }
+    #answerText1{
+
+    }
+    #answerText2{
+
+    }
+    #answerText3{
+
+    }
+    #answerText4{
+
+    }
+    #questionText{
+
+    }
+    #answerBox1{
+
+    }
+    #answerBox2{
+
+    }
+    #answerBox3{
+
+    }
+    #answerBox4{
+
+    }
+</style>
+<body>
+<div id = "MainMenu">
+
+</div>
+<script>
+
+    let main = document.getElementById("MainMenu");
+    function MainMenu()
+    {
+
+        let tut_title = document.createElement("STRONG");
+        tut_title.id = "TutorialTitle"
+        tut_title.style.fontSize = "1rem";
+        tut_title.style.position = "relative";
+        tut_title.style.color = "chocolate";
+        tut_title.style.left = "700px";
+        tut_title.style.top = "-75px";
+        tut_title.textContent = "TUTORIAL";
+
+        let tut_text = document.createElement("p");
+        tut_text.id = "TutorialText";
+        tut_text.style.position = "relative";
+        tut_text.style.color = "midnightblue";
+        tut_text.style.width = "300px";
+        tut_text.style.height = "100px";
+        tut_text.style.border = "1px cadetblue solid";
+        tut_text.style.bottom = "-65px";
+        tut_text.style.right = "-600px";
+        tut_text.textContent = "Game1) Guess which of the 4 options the color shown is! \n " +
+            " Game2) Guess which of the 4 colors the color name shows is! ";
+
+        let but_1 = document.createElement("button");
+        but_1.id = "GameButton1";
+        but_1.style.position = "relative";
+        but_1.style.right = "-550px";
+        but_1.style.bottom = "-70px";
+        but_1.textContent = "Game1";
+
+        let but_2 = document.createElement("button");
+        but_2.id = "GameButton2";
+        but_2.style.position = "relative";
+        but_2.style.right = "-650px";
+        but_2.style.bottom = "-70px";
+        but_2.textContent = "Game2";
+
+        main.appendChild(tut_text);
+        main.appendChild(tut_title)
+        main.appendChild(but_1);
+        main.appendChild(but_2);
+
+
+    }
+    MainMenu();
+    let total_score = 0;
+
+    function Game1()
+    {
+        let colours = {
+            "aliceblue": "1",
+            "antiquewhite": "2",
+            "aqua": "3",
+            "aquamarine": "#4",
+            "azure": "5",
+            "beige": "6",
+            "bisque": "7",
+            "black": "8",
+            "blanchedalmond": "9",
+            "blue": "10",
+            "blueviolet": "11",
+            "brown": "12",
+            "burlywood": "13",
+            "cadetblue": "14",
+            "chartreuse": "15",
+            "chocolate": "16",
+            "coral": "17",
+            "cornflowerblue": "18",
+            "cornsilk": "19",
+            "crimson": "20",
+            "cyan": "21",
+            "darkblue": "22",
+            "darkcyan": "23",
+            "darkgoldenrod": "24",
+            "darkgray": "25",
+            "darkgreen": "26",
+            "darkkhaki": "27",
+            "darkmagenta": "28",
+            "darkolivegreen": "29",
+            "darkorange": "30",
+            "darkorchid": "31",
+            "darkred": "32",
+            "darksalmon": "33",
+            "darkseagreen": "34",
+            "darkslateblue": "35",
+            "darkslategray": "36",
+            "darkturquoise": "37",
+            "darkviolet": "38",
+            "deeppink": "39",
+            "deepskyblue": "40",
+            "dimgray": "41",
+            "dodgerblue": "42",
+            "firebrick": "43",
+            "floralwhite": "44",
+            "forestgreen": "45",
+            "fuchsia": "46",
+            "gainsboro": "47",
+            "ghostwhite": "48",
+            "gold": "49",
+            "goldenrod": "50",
+            "gray": "51",
+            "green": "52",
+            "greenyellow": "53",
+            "honeydew": "54",
+            "hotpink": "55",
+            "indianred ": "56",
+            "indigo": "57",
+            "ivory": "58",
+            "khaki": "59",
+            "lavender": "60",
+            "lavenderblush": "61",
+            "lawngreen": "62",
+            "lemonchiffon": "63",
+            "lightblue": "64",
+            "lightcoral": "65",
+            "lightcyan": "66",
+            "lightgoldenrodyellow": "67",
+            "lightgrey": "68",
+            "lightgreen": "69",
+            "lightpink": "70",
+            "lightsalmon": "71",
+            "lightseagreen": "72",
+            "lightskyblue": "73",
+            "lightslategray": "74",
+            "lightsteelblue": "75",
+            "lightyellow": "76",
+            "lime": "77",
+            "limegreen": "78",
+            "linen": "79",
+            "magenta": "80",
+            "maroon": "81",
+            "mediumaquamarine": "82",
+            "mediumblue": "83",
+            "mediumorchid": "84",
+            "mediumpurple": "85",
+            "mediumseagreen": "86",
+            "mediumslateblue": "87",
+            "mediumspringgreen": "88",
+            "mediumturquoise": "89",
+            "mediumvioletred": "90",
+            "midnightblue": "91",
+            "mintcream": "92",
+            "mistyrose": "93",
+            "moccasin": "94",
+            "navajowhite": "95",
+            "navy": "96",
+            "oldlace": "97",
+            "olive": "98",
+            "olivedrab": "99",
+            "orange": "100",
+            "orangered": "101",
+            "orchid": "102",
+            "palegoldenrod": "103",
+            "palegreen": "104",
+            "paleturquoise": "105",
+            "palevioletred": "106",
+            "papayawhip": "107",
+            "peachpuff": "108",
+            "peru": "109",
+            "pink": "110",
+            "plum": "111",
+            "powderblue": "112",
+            "purple": "113",
+            "rebeccapurple": "114",
+            "red": "115",
+            "rosybrown": "116",
+            "royalblue": "117",
+            "saddlebrown": "118",
+            "salmon": "119",
+            "sandybrown": "120",
+            "seagreen": "121",
+            "seashell": "122",
+            "sienna": "123",
+            "silver": "124",
+            "skyblue": "125",
+            "slateblue": "126",
+            "slategray": "127",
+            "snow": "128",
+            "springgreen": "129",
+            "steelblue": "130",
+            "tan": "131",
+            "teal": "132",
+            "thistle": "133",
+            "tomato": "134",
+            "turquoise": "135",
+            "violet": "136",
+            "wheat": "137",
+            "white": "138",
+            "whitesmoke": "139",
+            "yellow": "140",
+            "yellowgreen": "141"
+        };
+        let color = Math.floor((Math.random()) * 140) + 1;
+        let main_Color = getKeyByValue(colours, color.toString())
+        let color1 = Math.floor((Math.random()) * 140) + 1;
+        let color_1 = getKeyByValue(colours, color1.toString())
+        let color2 = Math.floor((Math.random()) * 140) + 1;
+        let color_2 = getKeyByValue(colours, color2.toString())
+        let color3 = Math.floor((Math.random()) * 140) + 1;
+        let color_3 = getKeyByValue(colours, color3.toString())
+        let color4 = Math.floor((Math.random()) * 140) + 1;
+        let color_4 = getKeyByValue(colours, color4.toString())
+
+        let trueAnswer = Math.floor((Math.random()) * 4) + 1;   //Adjust true option
+
+        if(trueAnswer === 1)
+            color_1 = main_Color;
+        else if(trueAnswer === 2)
+            color_2 = main_Color;
+        else if(trueAnswer === 3)
+            color_3 = main_Color;
+        else if(trueAnswer === 4)
+            color_4= main_Color;
+
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
+
+        let radio_box1 = document.createElement('input');   // Option 1
+        radio_box1.style.position = "relative";
+        radio_box1.style.right = "-270px";
+        radio_box1.style.bottom = "-180px";
+        radio_box1.type = 'radio';
+        radio_box1.id = "radio1";
+        radio_box1.value = "radio1";
+        let label1 = document.createElement('label');
+        label1.setAttribute('for', 'radio1');
+        label1.innerHTML = color_1;
+        label1.style.position = "relative";
+        label1.style.right = "-210px";
+        label1.style.bottom = "-178px";
+        label1.id = "label1";
+
+        let radio_box2 = document.createElement('input');   // Option 2
+        radio_box2.style.position = "relative";
+        radio_box2.style.right = "-585px";
+        radio_box2.style.bottom = "-180px";
+        radio_box2.type = 'radio';
+        radio_box2.id = "radio2";
+        radio_box2.value = "radio2";
+        let label2 = document.createElement('label');
+        label2.setAttribute('for', 'radio2');
+        label2.innerHTML = color_2;
+        label2.style.position = "relative";
+        label2.style.right = "-525px";
+        label2.style.bottom = "-178px";
+        label2.id = "label2";
+
+        let radio_box3 = document.createElement('input');   // Option 3
+        radio_box3.style.position = "relative";
+        radio_box3.style.right = "-230px";
+        radio_box3.style.bottom = "-300px";
+        radio_box3.type = 'radio';
+        radio_box3.id = "radio3";
+        radio_box3.value = "radio3";
+        let label3 = document.createElement('label');
+        label3.setAttribute('for', 'radio3');
+        label3.innerHTML = color_3;
+        label3.style.position = "relative";
+        label3.style.right = "-100px";
+        label3.style.bottom = "-298px";
+        label3.id = "label3";
+
+
+        let radio_box4 = document.createElement('input');   // Option 4
+        radio_box4.style.position = "relative";
+        radio_box4.style.right = "-545px";
+        radio_box4.style.bottom = "-300px";
+        radio_box4.type = 'radio';
+        radio_box4.id = "radio4";
+        radio_box4.value = "radio4";
+        let label4 = document.createElement('label');
+        label4.setAttribute('for', 'radio4');
+        label4.innerHTML = color_4;
+        label4.style.position = "relative";
+        label4.style.right = "-425px";
+        label4.style.bottom = "-298px";
+        label4.id = "label4";
+
+
+        let QuestionBox = document.createElement("canvas");
+        QuestionBox.id = "QuestionBox";
+        QuestionBox.style.backgroundColor = main_Color;
+        QuestionBox.style.position = "relative";
+        QuestionBox.style.bottom = "-65px";
+        QuestionBox.style.right = "-600px";
+        QuestionBox.style.border = "1px cadetblue solid";
+
+
+        let submitButton = document.createElement("button");
+        submitButton.id = "submitButton";
+        submitButton.style.position = "relative";
+        submitButton.style.right = "-75px";
+        submitButton.style.bottom = "-380px";
+        submitButton.textContent = "SUBMIT";
+        submitButton.style.width = "200px";
+        submitButton.style.height = "50px";
+
+        main.appendChild(QuestionBox);
+        main.appendChild(radio_box1);
+        main.appendChild(radio_box2);
+        main.appendChild(radio_box3);
+        main.appendChild(radio_box4);
+        main.appendChild(label1);
+        main.appendChild(label2);
+        main.appendChild(label3);
+        main.appendChild(label4);
+        main.appendChild(submitButton);
+
+
+        let correctAnswer = true;
+        let clicked = false;
+        // It has to be allow chose just one option at the same time!
+
+            document.getElementById('radio1').onclick = function() {
+                clicked = true;
+                if(label1.innerHTML !== main_Color)
+                {
+                    correctAnswer = false;
+                }
+                else
+                    total_score++;
+
+            }
+            document.getElementById('radio2').onclick = function() {
+                clicked = true;
+                if(label2.innerHTML !== main_Color)
+                {
+                    correctAnswer = false;
+                }
+                else
+                    total_score++;
+
+            }
+            document.getElementById('radio3').onclick = function() {
+                clicked = true;
+                if(label3.innerHTML !== main_Color)
+                {
+                    correctAnswer = false;
+                }
+                else
+                    total_score++;
+            }
+            document.getElementById('radio4').onclick = function() {
+                clicked = true;
+                if(label4.innerHTML !== main_Color)
+                {
+                    correctAnswer = false;
+                }
+                else
+                    total_score++;
+            }
+
+
+             document.getElementById('submitButton').onclick = function() {
+                if(correctAnswer === false)
+                {
+                    document.getElementById('radio1').remove();
+                    document.getElementById('radio2').remove();
+                    document.getElementById('radio3').remove();
+                    document.getElementById('radio4').remove();
+                    document.getElementById('label1').remove();
+                    document.getElementById('label2').remove();
+                    document.getElementById('label3').remove();
+                    document.getElementById('label4').remove();
+                    document.getElementById('QuestionBox').remove();
+                    document.getElementById('submitButton').remove();
+                    let final_panel = document.createElement("p");
+                    final_panel.id = "finalPanel";
+                    final_panel.style.position = "relative";
+                    final_panel.style.color = "midnightblue";
+                    final_panel.style.width = "200px";
+                    final_panel.style.height = "100px";
+                    final_panel.style.border = "5px cadetblue solid";
+                    final_panel.style.bottom = "-65px";
+                    final_panel.style.right = "-600px";
+                    final_panel.textContent = "YOUR FINAL SCORE: " + total_score;
+                    let restartButton = document.createElement("button");
+                    restartButton.id = "restartButton";
+                    restartButton.style.position = "relative";
+                    restartButton.style.right = "-500px";
+                    restartButton.style.bottom = "-180px";
+                    restartButton.textContent = "RESTART";
+                    restartButton.style.width = "400px";
+                    restartButton.style.height = "200px";
+                    main.append(final_panel);
+                    main.append(restartButton);
+                    document.getElementById('restartButton').onclick = function()
+                    {
+                        location.reload();
+                    }
+                }
+                else
+                {
+                    document.getElementById('radio1').remove();
+                    document.getElementById('radio2').remove();
+                    document.getElementById('radio3').remove();
+                    document.getElementById('radio4').remove();
+                    document.getElementById('label1').remove();
+                    document.getElementById('label2').remove();
+                    document.getElementById('label3').remove();
+                    document.getElementById('label4').remove();
+                    document.getElementById('QuestionBox').remove();
+                    document.getElementById('submitButton').remove();
+                    Game1();
+                }
+            }
+    }
+    function Game2()
+    {
+        // Still working on it...
+    }
+    document.getElementById('GameButton1').onclick = function() {     // if button clicked?
+        document.getElementById("GameButton1").remove();
+        document.getElementById("GameButton2").remove();
+        document.getElementById("TutorialTitle").remove();
+        document.getElementById("TutorialText").remove();
+        Game1();
+    };
+    document.getElementById('GameButton2').onclick = function() {     // if button clicked?
+        document.getElementById("GameButton1").remove();
+        document.getElementById("GameButton2").remove();
+        document.getElementById("TutorialTitle").remove();
+        document.getElementById("TutorialText").remove();
+        Game2();
+    };
+</script>
+</body>
+</html>

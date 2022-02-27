@@ -1,0 +1,2 @@
+Created with Javascript and HTML, the game contains two minigames, finding the right color name or finding the right color from the options. 
+Currently in a single HTML file and there is no second minigame yet, but the second minigame will be added soon, and the project will be replaced with multiple Javascript and HTML files to improve readability. 
